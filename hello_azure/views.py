@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     print('Request for index page received')
-    return render(request, 'hello_azure/index.html')
+    return render(request, 'index.html')
 
 @csrf_exempt
 def hello(request):
@@ -20,3 +20,10 @@ def hello(request):
             return render(request, 'hello_azure/hello.html', context)
     else:
         return redirect('index')
+
+def obj_demo(request):
+    return render(request, 'object_detection/demo.html')
+
+def obj_result(request):
+    return render(request, 'object_detection/result.html')
+
