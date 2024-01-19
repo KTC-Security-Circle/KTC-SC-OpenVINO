@@ -1,26 +1,20 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
+from django.http import JsonResponse
+from django.http import JsonResponse
+from .models import Video
+import os
 def index(request):
     print('Request for index page received')
     return render(request, 'index.html')
 
-@csrf_exempt
-def hello(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        
-        if name is None or name == '':
-            print("Request for hello page received with no name or blank name -- redirecting")
-            return redirect('index')
-        else:
-            print("Request for hello page received with name=%s" % name)
-            context = {'name': name }
-            return render(request, 'hello_azure/hello.html', context)
-    else:
-        return redirect('index')
 
+@csrf_exempt
+def upload_file(request):
+    if request.method == 'POST':
+        video = Video(file=request.FILES['file'])
+        video.save()
+        return JsonResponse({'status': 'file uploaded'})
 def obj_demo(request):
     return render(request, 'object_detection/demo.html')
 

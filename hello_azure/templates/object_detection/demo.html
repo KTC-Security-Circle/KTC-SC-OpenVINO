@@ -33,26 +33,30 @@
               <div class="d-flex justify-content-end">
         </div>
       </div>
-      <div class="col-6" id="inputContent">
-        <div
-          id="drop-area"
-          class="p-5 d-flex justify-content-center"
-        >
-          <input type="file" id="file-input" style="display: none" accept=".mp4" />
-          <video controls id="selected-video" class="d-flex mx-auto col-md-12" ></video>
+      <form id="upload-form" method="post" enctype="multipart/form-data"></form>
+        {% csrf_token %}
+        <div class="col-6" id="inputContent">
+          <div
+            id="drop-area"
+            class="p-5 d-flex justify-content-center"
+          >
+            <input type="file" id="file-input" style="display: none" accept=".mp4" />
+            <video controls id="selected-video" class="d-flex mx-auto col-md-12" ></video>
+          </div>
+          <div id="file-list" class="mx-4 p-3 text-white text-center border">ここにファイル情報が表示されます</div>
+          <p class="p-3 text-white text-center">
+            アップロードする動画ファイルをドラッグ＆ドロップします。
+          </p>
+          <div class="d-flex pt-0 pb-3">
+            <button class="btn btn-primary btn-lg mx-auto">
+              <label for="file-input" class="fs-3 mb-0"> またはファイルを選択 </label>
+            </button>
+              <button id="overlayButton" type="button submit" class="btn btn-light btn-lg me-5 fs-3">実行</button>
+            <!-- 期待する動作 >> 選択した動画を送信する -->
+            
+          </div>
         </div>
-        <div id="file-list" class="mx-4 p-3 text-white text-center border">ここにファイル情報が表示されます</div>
-        <p class="p-3 text-white text-center">
-          アップロードする動画ファイルをドラッグ＆ドロップします。
-        </p>
-        <div class="d-flex pt-0 pb-3">
-          <button class="btn btn-primary btn-lg mx-auto">
-            <label for="file-input" class="fs-3 mb-0"> またはファイルを選択 </label>
-          </button>
-            <button id="overlayButton" type="button" class="btn btn-light btn-lg me-5 fs-3">実行</button>
-          <!-- 期待する動作 >> 選択した動画を送信する -->
-        </div>
-      </div>
+      </form>
     </div>
   
   <div id="overlay" class="overlay">
@@ -65,7 +69,7 @@
       <button id="closeOverlayButton" class="btn btn-light">閉じる</button>
     </div>
   </div>
-    <script src="{% static 'js/overlay.js' %}"></script>
+    <script src="{% static 'js/load.js' %}"></script>
     <script src="{% static 'js/dragAndDrop_video.js' %}"></script>
   </body>
 </html>
