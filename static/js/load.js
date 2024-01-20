@@ -23,20 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (closeOverlayButton) {
-        closeOverlayButton.addEventListener("click", function () {
-            overlay.style.display = "none";
-        });
-    }
-});
-document.querySelector('#upload-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var formData = new FormData(e.target);
-    fetch('/upload', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  });
+    closeOverlayButton.addEventListener("click", function () {
+        overlay.style.display = "none";
+      });
+    });
+    
