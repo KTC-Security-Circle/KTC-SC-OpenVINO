@@ -37,3 +37,8 @@ def obj_demo(request):
 def obj_result(request):
     return render(request, 'object_detection/result.html')
 
+def seg_demo(request):
+    return render(request, 'segmentation/demo.html')
+
+def seg_result(request):
+    return render(request, 'segmentation/result.html')
