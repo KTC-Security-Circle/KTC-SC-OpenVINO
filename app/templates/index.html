@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>2023 OpenVINO demo app</title>
+    <meta name="description" content="openVINOデモンストレーションページ" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+  </head>
+
+  <body>
+    <div class="content-title">
+      <h2 class="text-center pt-5 text-white">
+        OpenVINO™ ツールキットの
+      </br>
+      デモンストレーションを体験する
+      </h2>
+      <p class="text-center p-3 text-white">
+        スライドするカードをクリックしてデモンストレーションに進みましょう。
+      </p>
+    </div>
+    <div class="bg-white p-5">
+        <!--slide show content-->
+      <ul class="slidecontent">
+        <!--objectdetection-->
+        <li>
+          <div class="card shadow-lg" style="width: 40vm">
+            <a href="{% url 'obj_demo' %}">
+              <img
+                src="{% static 'img/object_detection.gif' %}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-primary rounded-bottom-3">
+                <h1 class="card-title text-white">物体検出</h1>
+              </div>
+            </a>
+          </div>
+        </li>
+        <!--segmentation-->
+        <li>
+          <div class="card shadow-lg" style="width: 40vm">
+            <a href="#">
+              <img
+                src="{% static 'img/segmentation.gif' %}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-primary rounded-bottom-3">
+                <h1 class="card-title text-white">セグメンテーション</h1>
+              </div>
+            </a>
+          </div>
+        </li>
+        <!--objectdetection-->
+        <li>
+          <div class="card shadow-lg" style="width: 40vm">
+            <a href="{% url 'obj_demo' %}">
+              <img
+                src="{% static 'img/object_detection.gif' %}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-primary rounded-bottom-3">
+                <h1 class="card-title text-white">物体検出</h1>
+              </div>
+            </a>
+          </div>
+        </li>
+        <!--segmentation-->
+        <li>
+          <div class="card shadow-lg" style="width: 40vm">
+            <a href="#">
+              <img
+                src="{% static 'img/segmentation.gif' %}"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body bg-primary rounded-bottom-3">
+                <h1 class="card-title text-white">セグメンテーション</h1>
+              </div>
+            </a>
+          </div>
+        </li>
+        <!--/slidecontent-->
+      </ul>
+    </div>
+    <footer>
+      <p class="text-center mt-3">copyright 2023 Siguretuki</p>
+      <p class="text-center">teamSC OpenVINO project</p>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/slideshow.js' %}"></script>
+
+  </body>
+</html>

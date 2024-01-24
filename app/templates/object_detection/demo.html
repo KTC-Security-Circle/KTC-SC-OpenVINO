@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/overlay.css' %}"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-white p-3" style="background-color: #004a86">物体検出デモンストレーション</h1>
+      <div class="p-5"></div>
+      <div class="row text-white pt-2" style="background-color: #004a86">
+
+        <div class="col-6">
+            <h1 class="text-white p-4">
+                物体検出について
+              </h1>
+              <p class="text-white p-4 pt-0 fw-bold fs-6">
+                物体検出は、画像やビデオから特定の物体や領域を自動的に検知する技術です。OpenVINOを使用すると、高性能なディープラーニングモデルを効果的に利用して、リアルタイムでの物体検出が可能です。
+                <br>
+                <br>
+                推論エンジンは、学習済みモデルを使用して新しいデータに対して予測を行います。OpenVINOの推論エンジンは、効率的で高速な推論を提供し、リアルタイムの物体検出を可能にします。このデモではopen_model_zooで公開されているcoco_datasetと呼ばれる学習済みモデルを採用しています。
+                <br>
+                <br>
+                OpenVINOは、CPUやGPU、VPU（Vision Processing Unit）などの異なるハードウェアを活用して、最適なパフォーマンスを発揮します。このデモでは、標準でCPUが設定されています。※今後クライアントPCに対応してGPU等他のデバイスが選択できるようになるかもしれません。
+                <br>
+                <br>
+              </p>
+              <div class="d-flex justify-content-end">
+        </div>
+      </div>
+        
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="col-6" id="inputContent">
+            <video controls id="selected-video" class="d-flex mx-auto col-md-12" style="display: none;"></video>
+          </div>
+          {{ form.file }}
+          <br><br>
+          <br>
+            {#保存されたファイル名を表示#}
+            {% if filename_save %}
+                <br><br>
+            {% endif %}
+        
+            <input type="submit" value="送信"/>
+        </form>
+        <br>
+
+    </div>
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
+        <p>推論を開始しました。これには数分かかる場合があります…
+          <br>
+          推論が完了すると、結果が表示されます。
+        </p>
+      </div>
+    </div>
+    <script src="{% static 'js/load.js' %}"></script>
+  </body>
+</html>
