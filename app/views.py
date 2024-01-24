@@ -3,7 +3,7 @@ from django.views.generic import View
 from .forms import FileUploadSampleForm
 from django.http import JsonResponse
 from django.urls import reverse
-from .application import object_detection_django as ai
+from .application import object_detection_django 
 import os
 def index(request):
     return render(request, 'index.html')
@@ -26,9 +26,9 @@ class IndexView(View):
             'form': form,
             'filename_save': filename_save,
         }
-        output_video_path = os.path.join('media', 'upload', 'upload.mp4')
-        input_video_path = os.path.join('media', 'upload', 'upload.mp4')
-        ai.run_object_detection(input_video_path,output_video_path)
+        output_video_path = os.path.join('media', 'upload', 'output.mp4')
+        input_video_path = os.path.join('media', 'upload', 'input.mp4')
+        object_detection_django.run_object_detection(input_video_path,output_video_path)
         #zzz = ai.run()
         redirect_url = reverse('obj_result')
         # 処理が完了したら、リダイレクト先のURLを含むJSONを返す

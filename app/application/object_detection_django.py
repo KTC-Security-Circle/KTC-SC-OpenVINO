@@ -189,7 +189,4 @@ def run_object_detection(input_video_path,output_video_path):
     cv2.destroyAllWindows()
 
 #使う場所によって要変更
-
-output_video_path = os.path.join('media', 'upload', 'upload.mp4')
-input_video_path = os.path.join('media', 'upload', 'upload.mp4')
-run_object_detection(input_video_path,output_video_path)
+#run_object_detection()
