@@ -1,6 +1,0 @@
-Django
-whitenoise
-openvino
-openvino-dev
-ipython
-ipywidgets
