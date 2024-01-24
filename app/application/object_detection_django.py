@@ -17,7 +17,7 @@ import os
 #)
 
 # notebook_utilsをutilsフォルダからインポート（オフライン用）
-from utils import notebook_utils as utils
+from .utils import notebook_utils as utils
 
 #モデルの設定
 base_model_dir = Path("model")
