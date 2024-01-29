@@ -1,28 +1,69 @@
-# Deploy a Python (Django) web app to Azure App Service - Sample Application
+# OpenVINO ローカルアプリ
 
-This is the sample Django application for the Azure Quickstart [Deploy a Python (Django or Flask) web app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python).  For instructions on how to create the Azure resources and deploy the application to Azure, refer to the Quickstart article.
+## 概要
+- このアプリは、INTELのOpenVINOを使用した、Djangoアプリケーションです。
+- プロジェクトは、ローカル環境でのOpenVINOデモを簡単に行えるようにしたものです。
 
-Sample applications are available for the other frameworks here:
+## 動作環境
 
-* Flask [https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart)
-* FastAPI [https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart)
+まずIntel CPUを搭載したパソコンが必要です
 
-If you need an Azure account, you can [create one for free](https://azure.microsoft.com/en-us/free/).
+--動作確認済み環境--
+- 第 6 世代から第 13 世代の インテル® Core™ プロセッサー
+- Windows10,11
 
-## For local development
+--公式引用システム要求--
+- 第6世代から第13世代のインテル® Core™ プロセッサー
+- インテル® Core™ ウルトラ プロセッサー
+- 第 1 世代から第 4 世代までのインテル® Xeon® スケーラブル プロセッサー
+- Arm* および Arm64 CPU
+- Apple* M1 および M2
+- ラズベリーパイ*
 
-Fill in a secret value in the `.env` file.
+--互換性のあるオペレーティング システム--
+- Ubuntu* 22.04 長期サポート (LTS)、64 ビット (カーネル 5.15+)
+- Ubuntu 20.04 LTS、64 ビット (カーネル 5.15 以降)
+- Ubuntu 18.04 LTS (制限付き)、64 ビット (カーネル 5.4 以降)
+- Windows® 10および11
+- macOS* 10.15 以降、64 ビット
+- macOS* 11 以降、Arm64
+- Red Hat* Enterprise Linux* 8、64 ビット
+- Debian* 9、Arm64、および Arm
+- CentOS* 7 64 ビット
 
-For local development, use this random string as an appropriate value:
-
+## セットアップ手順
+1. リポジトリのクローン
 ```shell
-SECRET_KEY=123abc
+git clone https://github.com/KTC-Security-Circle/KTC-SC-OpenVINO.git
 ```
 
-## When you deploy to Azure
-
-For deployment to production, create an app setting, `SECRET_KEY`. Use this command to generate an appropriate value:
-
+2. アプリケーション フォルダーに移動
 ```shell
-python -c 'import secrets; print(secrets.token_hex())'
+cd KTC-SC-OpenVINO
 ```
+
+3. アプリの仮想環境を作成
+```shell
+py -m venv .venv
+.venv\scripts\activate
+python.exe -m pip install --upgrade pip
+```
+
+4. 依存関係のインストール
+```shell
+pip install -r requirements.txt
+``` 
+
+5. セットアップ手順
+```shell
+python manage.py makemigrations
+python manage.py migrate  
+```
+
+6. アプリを実行
+```shell
+python manage.py runserver
+
+```
+7. ブラウザでアクセス
+http://localhost:8000 
