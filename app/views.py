@@ -26,6 +26,7 @@ class IndexView(View):
             'form': form,
             'filename_save': filename_save,
         }
+        
         output_video_path = os.path.join('media', 'upload', 'output.mp4')
         input_video_path = os.path.join('media', 'upload', 'input.mp4')
         object_detection_django.run_object_detection(input_video_path,output_video_path)

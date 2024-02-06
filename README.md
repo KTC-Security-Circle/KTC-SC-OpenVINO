@@ -3,7 +3,6 @@
 ## 概要
 - このアプリは、INTELのOpenVINOを使用した、Djangoアプリケーションです。
 - プロジェクトは、ローカル環境でのOpenVINOデモを簡単に行えるようにしたものです。
-- 現在は物体検出動画デモのみ対応しています。
 
 ## 動作環境
 
@@ -64,7 +63,7 @@ python manage.py migrate
 6. アプリを実行
 ```shell
 python manage.py runserver
-
 ```
+
 7. ブラウザでアクセス
 http://localhost:8000 

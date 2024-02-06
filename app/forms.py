@@ -11,7 +11,7 @@ class FileUploadSampleForm(forms.Form):
     def save(self):
         """ファイルを保存するメソッド"""
         upload_file = self.cleaned_data['file']
-        file_name = 'upload.mp4'
+        file_name = 'input.mp4'
 
         # 同じ名前のファイルが存在する場合は削除
         if default_storage.exists('upload/' + file_name):

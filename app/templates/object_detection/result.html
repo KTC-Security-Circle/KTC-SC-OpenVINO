@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/footbody.css' %}"/>
 </head>
 <body>
+    
+    <h1 class="text-white p-3" style="background-color: #004a86">
+        <div class="container">物体検出デモンストレーション結果</div>
+    </h1>
     <div class="container">
-        <h1 class="text-white p-3" style="background-color: #004a86">物体検出デモンストレーション結果</h1>
         <div class="p-5"></div>
         <div class="d-flex row" style="background-color: #004a86">
             {% csrf_token %}
@@ -17,18 +22,26 @@
             <div class="col-6 text-white text-center pt-3"><h2>実行結果</h2></div>
             <div class="w-100"></div>
             <div class="col-md-6 p-3 d-flex" id="inputVideo">
-                <video src="/media/upload/upload.mp4" controls class="d-flex col-12 p-3"></video>
+                <video src="/media/upload/input.mp4" controls class="d-flex col-12 p-3"></video>
             </div>
             <div class="col-md-6 p-3 d-flex" id="resultVideo">
-                <video src="/media/upload/reupload.mp4" controls class="d-flex col-12 p-3"></video>
+                <video src="/media/upload/output.mp4" controls class="d-flex col-12 p-3"></video>
             </div>
             <div class="w-100"></div>
             <div class="d-flex text-center justify-content-center p-4">
-                <button class="btn btn-primary btn-lg col-3 me-3">
+                 <a class="btn btn-primary btn-lg col-3" href="/media/upload/output.mp4" download>
                     結果をダウンロード<img class="ms-2" src="{% static 'img/download.svg' %}"></img>
-                </button>
+                 </a>
             </div>
         </div>
     </div>
 </body>
+<!-- 既存のコードの下部に追加 -->
+<footer class="footer-custom text-white text-center py-3">
+    <div class="container">
+        <a href="{% url 'index' %}" class="btn btn-outline-light btn-sm">ホーム</a>
+        <button onclick="history.back()" class="btn btn-outline-light btn-sm">戻る</button>
+    </div>
+</footer>
+
 </html>
