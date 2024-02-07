@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\krake\OneDrive\ドキュメント\GitHub\KTC-SC-OpenVINO\KTC-SC-OpenVINO\.venv
+set VIRTUAL_ENV=C:\Users\ktc\Documents\GitHub\KTC-SC-OpenVINO\KTC-SC-OpenVINO\.venv
 
 if not defined PROMPT set PROMPT=$P$G
 
